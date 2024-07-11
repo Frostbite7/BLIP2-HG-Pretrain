@@ -1,9 +1,9 @@
+# Word embedding and prediction head classes are from BERT model.
+
+
 import torch
 import torch.nn as nn
 from transformers.activations import ACT2FN
-
-
-# Copy the utility classes from LAVIS/lavis/models/blip2_models/Qformer.py
 
 
 # there are some slight modifications to the original code

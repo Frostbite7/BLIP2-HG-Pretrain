@@ -1,3 +1,8 @@
+# Implement the pretrain class of the BLIP2 Q-former model
+# This implementation uses the LAVIS/lavis/models/blip2_models/blip2_qformer.py from Salesforce as a reference
+# It is modified to work with the huggingface implementation of the BLIP2 Q-former model
+
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -217,3 +222,7 @@ class BLIP2QformerPretrain(nn.Module):
         lm_loss = self.lm_loss_fct(shifted_prediction_scores.view(-1, self.config.vocab_size), labels.view(-1))
         if self.lm_reduction == "none":
             lm_loss = lm_loss.view(prediction_scores.size(0), -1).sum(1)
+
+        # ===================== Total Loss ======================== #
+        loss = loss_itc + loss_itm + lm_loss
+        return loss, loss_itc, loss_itm, lm_loss

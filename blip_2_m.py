@@ -1,3 +1,8 @@
+# this is the modified version of the original BLIP2 implementation in HuggingFace's transformers library
+# The original hugging face implementation does not support pretraining the Q-Former model
+# The Blip2QFormerModel class is modified to support pretraining
+
+
 # coding=utf-8
 # Copyright 2023 The Salesforce Authors and The HuggingFace Team. All rights reserved.
 #
